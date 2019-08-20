@@ -11,6 +11,15 @@ public class Permission implements Serializable {
     private String permissionName;
     private String url;
     private List<Role> roles;
+    private List<Permission> permissionList;
+
+    public List<Permission> getPermissionList() {
+        return permissionList;
+    }
+
+    public void setPermissionList(List<Permission> permissionList) {
+        this.permissionList = permissionList;
+    }
 
     private String selected;
 

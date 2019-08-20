@@ -22,67 +22,69 @@
         <ul class="sidebar-menu">
             <li class="header">菜单</li>
             <li id="admin-index">
-                <a href="${pageContext.request.contextPath}/pages/index.jsp">
+                <a href="${pageContext.request.contextPath}/main.jsp">
                     <i class="fa fa-dashboard"></i> <span>首页</span></a>
             </li>
-           
+           <c:forEach items="${permissions}" var="permission">
                 <li class="treeview">
                     <a href="#">
                         <i class="fa fa-cogs"></i>
-                        <span>系统管理</span>
+                        <span>${permission.permissionName}</span>
                         <span class="pull-right-container">
                             <i class="fa fa-angle-left pull-right"></i>
                         </span>
                     </a>
                     <ul class="treeview-menu">
+                        <c:forEach items="${permission.permissionList}" var="ps">
                         <li>
-                            <a href="${pageContext.request.contextPath}/user/findAll">
-                                <i class="fa fa-circle-o"></i> 用户管理
+                            <a href="${pageContext.request.contextPath}/${ps.url}">
+                                <i class="fa fa-circle-o"></i> ${ps.permissionName}
                             </a>
                         </li>
+                         </c:forEach>
 
-                        <li>
-                            <a href="${pageContext.request.contextPath}/role/findAll">
-                                <i class="fa fa-circle-o"></i> 角色管理
-                            </a>
-                        </li>
+                        <%--<li>--%>
+                            <%--<a href="${pageContext.request.contextPath}/role/findAll">--%>
+                                <%--<i class="fa fa-circle-o"></i> 角色管理--%>
+                            <%--</a>--%>
+                        <%--</li>--%>
 
-                        <li>
-                            <a href="${pageContext.request.contextPath}/permission/findAll">
-                                <i class="fa fa-circle-o"></i> 资源权限管理
-                            </a>
-                        </li>
+                        <%--<li>--%>
+                            <%--<a href="${pageContext.request.contextPath}/permission/findAll">--%>
+                                <%--<i class="fa fa-circle-o"></i> 资源权限管理--%>
+                            <%--</a>--%>
+                        <%--</li>--%>
 
-                        <li>
-                            <a href="${pageContext.request.contextPath}/syslog/findAll">
-                                <i class="fa fa-circle-o"></i> 访问日志
-                            </a>
-                        </li>
+                        <%--<li>--%>
+                            <%--<a href="${pageContext.request.contextPath}/syslog/findAll">--%>
+                                <%--<i class="fa fa-circle-o"></i> 访问日志--%>
+                            <%--</a>--%>
+                        <%--</li>--%>
                     </ul>
                 </li>
-           
-                <li class="treeview"><a href="#"> <i class="fa fa-cube"></i>
-                    <span>基础数据</span> <span class="pull-right-container"> <i
-                            class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                    <ul class="treeview-menu">
-                        <li>
-                            <a href="${pageContext.request.contextPath}/product/findAll">
-                                <i class="fa fa-circle-o"></i> 产品管理
-                            </a>
-                        </li>
-                        <li>
-                            <%--?page=1&pageSize=3--%>
-                            <a href="${pageContext.request.contextPath}/orders/findAll">
-                                <i class="fa fa-circle-o"></i> 订单管理
-                            </a>
-                        </li>
+           </c:forEach>
+                <%--<li class="treeview"><a href="#"> <i class="fa fa-cube"></i>--%>
+                    <%--<span>hhh</span> <span class="pull-right-container"> <i--%>
+                            <%--class="fa fa-angle-left pull-right"></i>--%>
+                    <%--</span>--%>
+                <%--</a>--%>
+                    <%--<ul class="treeview-menu">--%>
+                        <%--<c:forEach items="${permissions.permissionList}" var="ps">--%>
+                        <%--<li>--%>
+                            <%--<a href="${pageContext.request.contextPath}/product/findAll">--%>
+                                <%--<i class="fa fa-circle-o"></i> ${ps.permissionName}--%>
+                        <%--</a>--%>
+                        <%--</li>--%>
+                        <%--</c:forEach>--%>
+                        <%--<li>--%>
+                            <%--&lt;%&ndash;?page=1&pageSize=3&ndash;%&gt;--%>
+                            <%--<a href="${pageContext.request.contextPath}/orders/findAll">--%>
+                                <%--<i class="fa fa-circle-o"></i> 订单管理--%>
+                            <%--</a>--%>
+                        <%--</li>--%>
 
                     </ul>
-                </li>
-          
-        </ul>
+
     </section>
     <!-- /.sidebar -->
 </aside>

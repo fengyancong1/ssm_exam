@@ -8,4 +8,7 @@ public interface PermissionService {
     List<Permission> findAll(Integer page, Integer pageSize);
 
     void add(Permission permission);
+
+    List<Permission> findbyusername(String username);
+
 }

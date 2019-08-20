@@ -31,7 +31,8 @@
 
                 login-page="/login.jsp"
                 login-processing-url="/login"
-                default-target-url="/main.jsp"
+                authentication-success-forward-url="/permission/findbyusername"
+                default-target-url="/permission/findbyusername"
                 authentication-failure-url="/failer.jsp"
         />
 

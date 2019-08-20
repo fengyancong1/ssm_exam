@@ -25,4 +25,14 @@ public class PermissionServiceImpl implements PermissionService {
     public void add(Permission permission) {
         permissionDao.add(permission);
     }
+
+    @Override
+    public List<Permission> findbyusername(String username) {
+        List<Permission> permissions = permissionDao.findbyusername(username);
+        for (Permission permission : permissions) {
+            List<Permission> list =  permissionDao.findbyid(username,permission.getId());
+            permission.setPermissionList(list);
+        }
+        return permissions;
+    }
 }

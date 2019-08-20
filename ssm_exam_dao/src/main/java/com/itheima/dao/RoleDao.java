@@ -17,6 +17,7 @@ public interface RoleDao {
                     many = @Many(select = "com.itheima.dao.PermissionDao.findbypermissionid"))
     })
     public List<Role> findbyRoleid(String id);
+
     @Select("select * from ROLE")
     List<Role> findAll();
     @Insert("insert into ROLE values(sys_guid(),#{roleName},#{roleDesc})")
